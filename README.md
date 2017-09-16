@@ -2,7 +2,8 @@
 Code, Data and analysis software written for taking data from HERA antennas.
 -----------------------------------------------------------------                                                             
                         Antenna array                                               
------------------------------------------------------------------          
+-----------------------------------------------------------------
+|:-------------:|:-------------:|:-------------:|:-------------:|
 |       84      |       85      |       86      |       87      |                                                             
 -----------------------------------------------------------------                                              
 |       52      |       53      |       54      |       55      |
@@ -12,10 +13,9 @@ Code, Data and analysis software written for taking data from HERA antennas.
 
 Observations:
 ----------------
-
 Log of all observing runs while at South Africa between 17/7/2017 and 31/7/2017
-Date   |Receivers |Antennas             |Time UTC-5 (UTC+2)                     |Channels used (Fs)       |Name of hdf5 file                      |Vis$
------- |--------- |--------             |------------------                     |------------- ----       |-----------------                      |---$
+Date   |Receivers |Antennas             |Time UTC-5 (UTC+2)                     |Channels used (Fs)       |Name of hdf5 file                      |Visib file
+:------|:---------|:-------------------:|:--------------------------------------|:------------------------|:--------------------------------------|:------------------|
 7/24   |NRAO      |84(NF),85,86,87,55   |3.25-4:06:58 (10.25am-11.05am)         |0, 150, 170(?) (200MHz)  |test_fringes.hdf5 (wc)                 |tes$
 7/27   |PAMs      |84, 27               |11.28-12.13 (6.30pm to 7.15pm)         |20, 50, 80 (250 MHz)     |test_fringes_withPAMs.hdf5 (wc)        |tes$
 7/28   |PAMs      |84, 27               |03:51:14- 04:05:29 (~10am)             |35, 60, 81 (220 MHz)     |                                       |    
