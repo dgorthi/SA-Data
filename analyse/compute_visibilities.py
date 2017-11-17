@@ -6,6 +6,7 @@
 import numpy as np
 import cPickle as cp
 import h5py
+import bitshuffle.h5
 import argparse
 import sys,time
 

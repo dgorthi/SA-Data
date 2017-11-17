@@ -26,16 +26,24 @@ parser.add_argument('--filesize', type=int, default= 512,
                     help='Size of each input file in MB')
 parser.add_argument('-log', '--log_output', action='store_true', default=False,
                     help='Log all output of this code')
+parser.add_argument('-logno','--log_file_number',type=int, default=0,
+                    help='Specify number of log file for this operation')
 
 args = parser.parse_args()
 
-if(args.log_output):
-    sys.stdout = open('log_unpacking_%s.txt'%(time.strftime('%d-%m-%Y',time.localtime())),'w',0)
-
 ## Check if all the files are in the same directory
 assert(args.strt_filename.split('/')[1] == args.stop_filename.split('/')[1])
-directory = args.strt_filename.split('/')[1]
+directory = args.strt_filename.split('/')[1]+'/'+args.strt_filename.split('/')[2]
+print(directory)
 date = args.strt_filename.split('_')[1]
+
+## Log output
+if(args.log_output):
+    if args.log_file_number:
+        logfile = '../log/log_unpacking_%s_%d.txt'%(date[:10],args.log_file_number)
+    else:
+        logfile = '../log/log_unpacking_%s.txt'%(date[:10])
+    sys.stdout = open(logfile,'w',0)
 
 files = sorted(glob.glob('/'+directory+'/data_'+date[:8]+'*'), key=os.path.getmtime)
 strt = files.index(args.strt_filename)
@@ -63,6 +71,7 @@ nsam = int(length_cpy/(args.antennas*args.channels*2))
 print ("Creating a global file for %d antennas and %d channels"%(args.antennas,args.channels))
 print ("Data from %s"%date)
 print ("Unpacking data from file: %s\n To file: %s"%(args.strt_filename,args.stop_filename))
+print ("Total number of files: %d"%len(files))
 print ("Output hdf5 file: %s"%('/'+directory+'/'+args.output))
 print ("Compressed using the bitshuffle algorithm")
 

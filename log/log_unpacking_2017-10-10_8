@@ -1,0 +1,5174 @@
+Creating a global file for 12 antennas and 3 channels
+Data from 2017-10-10
+Unpacking data from file: /data/dgorthi/data_2017-10-10_19:00:09
+ To file: /data/dgorthi/data_2017-10-10_20:30:01
+Total number of files: 574
+Output hdf5 file: /data/dgorthi/Oct10_PAMs_19:00-20:30.hdf5
+Compressed using the bitshuffle algorithm
+Reading /data/dgorthi/data_2017-10-10_19:00:09 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:00:18 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:00:27 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:00:37 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:00:46 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:00:56 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:01:05 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:01:14 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:01:24 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:01:33 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:01:43 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:01:52 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:02:01 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:02:11 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:02:20 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:02:30 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:02:39 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:02:48 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:02:58 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:03:07 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:03:17 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:03:26 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:03:35 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:03:45 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:03:54 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:04:03 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:04:13 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:04:22 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:04:32 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:04:41 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:04:50 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:05:00 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:05:09 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:05:19 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:05:28 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:05:37 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:05:47 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:05:56 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:06:06 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:06:15 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:06:24 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:06:34 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:06:43 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:06:53 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:07:02 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:07:11 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:07:21 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:07:30 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:07:40 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:07:49 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:07:58 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:08:08 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:08:17 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:08:27 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:08:36 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:08:45 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:08:55 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:09:04 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:09:14 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:09:23 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:09:32 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:09:42 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:09:51 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:10:01 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:10:10 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:10:19 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:10:29 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:10:38 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:10:47 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:10:57 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:11:06 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:11:16 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:11:25 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:11:34 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:11:44 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:11:53 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:12:03 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:12:12 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:12:21 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:12:31 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:12:40 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:12:50 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:12:59 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:13:08 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:13:18 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:13:27 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:13:37 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:13:46 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:13:55 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:14:05 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:14:14 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:14:24 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:14:33 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:14:42 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:14:52 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:15:01 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:15:11 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:15:20 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:15:29 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:15:39 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:15:48 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:15:58 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:16:07 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:16:16 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:16:26 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:16:35 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:16:44 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:16:54 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:17:03 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:17:13 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:17:22 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:17:31 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:17:41 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:17:50 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:18:00 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:18:09 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:18:18 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:18:28 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:18:37 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:18:47 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:18:56 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:19:05 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:19:15 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:19:24 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:19:34 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:19:43 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:19:52 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:20:02 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:20:11 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:20:21 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:20:30 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:20:39 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:20:49 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:20:58 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:21:08 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:21:17 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:21:26 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:21:36 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:21:45 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:21:55 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:22:04 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:22:13 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:22:23 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:22:32 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:22:42 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:22:51 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:23:00 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:23:10 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:23:19 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:23:28 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:23:38 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:23:47 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:23:57 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:24:06 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:24:15 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:24:25 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:24:34 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:24:44 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:24:53 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:25:02 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:25:12 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:25:21 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:25:31 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:25:40 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:25:49 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:25:59 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:26:08 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:26:18 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:26:27 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:26:36 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:26:46 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:26:55 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:27:05 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:27:14 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:27:23 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:27:33 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:27:42 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:27:52 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:28:01 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:28:10 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:28:20 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:28:29 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:28:39 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:28:48 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:28:57 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:29:07 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:29:16 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:29:26 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:29:35 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:29:44 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:29:54 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:30:03 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:30:12 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:30:22 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:30:31 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:30:41 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:30:50 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:30:59 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:31:09 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:31:18 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:31:28 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:31:37 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:31:46 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:31:56 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:32:05 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:32:15 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:32:24 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:32:33 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:32:43 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:32:52 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:33:02 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:33:11 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:33:20 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:33:30 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:33:39 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:33:49 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:33:58 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:34:07 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:34:17 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:34:26 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:34:36 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:34:45 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:34:54 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:35:04 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:35:13 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:35:23 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:35:32 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:35:41 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:35:51 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:36:00 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:36:10 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:36:19 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:36:28 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:36:38 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:36:47 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:36:56 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:37:06 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:37:15 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:37:25 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:37:34 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:37:43 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:37:53 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:38:02 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:38:12 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:38:21 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:38:30 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:38:40 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:38:49 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:38:59 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:39:08 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:39:17 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:39:27 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:39:36 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:39:46 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:39:55 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:40:04 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:40:14 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:40:23 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:40:33 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:40:42 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:40:51 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:41:01 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:41:10 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:41:20 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:41:29 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:41:38 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:41:48 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:41:57 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:42:07 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:42:16 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:42:25 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:42:35 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:42:44 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:42:54 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:43:03 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:43:12 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:43:22 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:43:31 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:43:40 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:43:50 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:43:59 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:44:09 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:44:18 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:44:27 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:44:37 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:44:46 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:44:56 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:45:05 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:45:14 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:45:24 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:45:33 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:45:43 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:45:52 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:46:01 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:46:11 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:46:20 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:46:30 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:46:39 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:46:48 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:46:58 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:47:07 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:47:17 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:47:26 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:47:35 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:47:45 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:47:54 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:48:04 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:48:13 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:48:22 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:48:32 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:48:41 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:48:51 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:49:00 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:49:09 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:49:19 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:49:28 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:49:38 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:49:47 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:49:56 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:50:06 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:50:15 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:50:24 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:50:34 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:50:43 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:50:53 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:51:02 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:51:11 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:51:21 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:51:30 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:51:40 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:51:49 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:51:58 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:52:08 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:52:17 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:52:27 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:52:36 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:52:45 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:52:55 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:53:04 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:53:14 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:53:23 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:53:32 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:53:42 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:53:51 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:54:01 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:54:10 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:54:19 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:54:29 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:54:38 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:54:48 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:54:57 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:55:06 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:55:16 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:55:25 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:55:35 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:55:44 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:55:53 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:56:03 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:56:12 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:56:21 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:56:31 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:56:40 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:56:50 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:56:59 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:57:08 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:57:18 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:57:27 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:57:37 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:57:46 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:57:55 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:58:05 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:58:14 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:58:24 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:58:33 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:58:42 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:58:52 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:59:01 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:59:11 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:59:20 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:59:29 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:59:39 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:59:48 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_19:59:58 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:00:07 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:00:16 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:00:26 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:00:35 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:00:45 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:00:54 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:01:03 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:01:13 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:01:22 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:01:32 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:01:41 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:01:50 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:02:00 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:02:09 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:02:19 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:02:28 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:02:37 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:02:47 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:02:56 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:03:05 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:03:15 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:03:24 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:03:34 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:03:43 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:03:52 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:04:02 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:04:11 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:04:21 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:04:30 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:04:39 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:04:49 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:04:58 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:05:08 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:05:17 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:05:26 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:05:36 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:05:45 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:05:55 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:06:04 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:06:13 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:06:23 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:06:32 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:06:42 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:06:51 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:07:00 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:07:10 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:07:19 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:07:29 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:07:38 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:07:47 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:07:57 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:08:06 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:08:16 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:08:25 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:08:34 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:08:44 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:08:53 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:09:03 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:09:12 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:09:21 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:09:31 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:09:40 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:09:49 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:09:59 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:10:08 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:10:18 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:10:27 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:10:36 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:10:46 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:10:55 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:11:05 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:11:14 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:11:23 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:11:33 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:11:42 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:11:52 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:12:01 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:12:10 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:12:20 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:12:29 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:12:39 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:12:48 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:12:57 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:13:07 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:13:16 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:13:26 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:13:35 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:13:44 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:13:54 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:14:03 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:14:13 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:14:22 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:14:31 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:14:41 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:14:50 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:15:00 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:15:09 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:15:18 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:15:28 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:15:37 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:15:47 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:15:56 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:16:05 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:16:15 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:16:24 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:16:33 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:16:43 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:16:52 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:17:02 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:17:11 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:17:20 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:17:30 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:17:39 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:17:49 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:17:58 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:18:07 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:18:17 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:18:26 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:18:36 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:18:45 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:18:54 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:19:04 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:19:13 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:19:23 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:19:32 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:19:41 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:19:51 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:20:00 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:20:10 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:20:19 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:20:28 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:20:38 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:20:47 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:20:57 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:21:06 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:21:15 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:21:25 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:21:34 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:21:44 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:21:53 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:22:02 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:22:12 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:22:21 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:22:31 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:22:40 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:22:49 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:22:59 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:23:08 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:23:17 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:23:27 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:23:36 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:23:46 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:23:55 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:24:04 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:24:14 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:24:23 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:24:33 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:24:42 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:24:51 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:25:01 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:25:10 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:25:20 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:25:29 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:25:38 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:25:48 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:25:57 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:26:07 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:26:16 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:26:25 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:26:35 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:26:44 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:26:54 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:27:03 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:27:12 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:27:22 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:27:31 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:27:41 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:27:50 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:27:59 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:28:09 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:28:18 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:28:28 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:28:37 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:28:46 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:28:56 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:29:05 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:29:14 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:29:24 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:29:33 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:29:43 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Reading /data/dgorthi/data_2017-10-10_20:29:52 ...
+0
+1
+2
+3
+4
+5
+6
+7
+Finished unpacking all the data.. You may read the file now
