@@ -10,8 +10,14 @@ import bitshuffle.h5
 import argparse
 import sys,time
 
+with h5py.File(args.filename,'r') as fp:
+    attrs = {}
+    for k,v in fp.attrs.items():
+        attrs[k] = v 
+
 parser = argparse.ArgumentParser(description='Read an input hdf5 file with antenna voltages and compute visibilities from it.'\
-                                 'Specify either (-t, -f, -files) or (-nsam,-files) in that combination to determine folding period'\
+                                 'Folding period computed from meta data in the hdf5 header. Specify either (-t, -f, -files) '\
+                                 'or (-nsam,-files) in that combination to override default folding period'\
                                  'and integration period. Visibilities are output in a cPickle format.',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('filename',type=str,
@@ -20,28 +26,28 @@ parser.add_argument('-log', '--log_output', action='store_true', default=False,
                     help='Log all output of this code')
 parser.add_argument('-o', '--output', type=str, default= 'Output_%s.cp'%(time.strftime('%d-%m-%Y_%H:%M:%S',time.localtime())),
                     help='Specify the cPickled output file name')
-parser.add_argument('-ant', '--antennas', type=int, default= 12,
+parser.add_argument('-ant', '--antennas', type=int, default= attrs['Nants'],
                     help='Number of antennas in the array')
-parser.add_argument('-chan','--channels',type=int, default=3,
+parser.add_argument('-chan','--channels',type=int, default= attrs['Nchans'],
                     help='Number of channels to unpack')
-parser.add_argument('-N','--nsam',type=int, default=0,
+parser.add_argument('-N','--nsam',type=int, default= 0,
                     help='Number of time samples user wants in the output. This sets the integration time.')                    
-parser.add_argument('-t','--integration_time', type=float, default=0,
+parser.add_argument('-t','--integration_time', type=float, default= 10,
                     help='Integration time in seconds')
-parser.add_argument('-f','--sampling_freq', type=float, default=0,
+parser.add_argument('-f','--sampling_freq', type=float, default= 200,
                     help='Sampling frequency [MHz] used to collect data')
-parser.add_argument('-files','--num_files',type=int,default=0,
+parser.add_argument('-files','--num_files',type=int, default= attrs['N_bin_files'],
                     help='Total number of binary files unpacked to create input hdf5 file')
-parser.add_argument('--NACC',type=int, default= 8192,
+parser.add_argument('--NACC',type=int, default= attrs['NACC'],
                     help='Number of UDP packets per buffer')
-parser.add_argument('--UDP', type=int, default= 8064,
+parser.add_argument('--UDP', type=int, default= attrs['UDP_B'],
                     help='Size (in bytes) of each UDP packet')
-parser.add_argument('--filesize', type=int, default= 512,
+parser.add_argument('--filesize', type=int, default= attrs['bin_filesize_MB'],
                     help='Size of each input file in MB')
 args = parser.parse_args()
 
 if(args.log_output):
-    sys.stdout = open('log_computevisb_%s.txt'%(time.strftime('%d-%m-%Y',time.localtime())),'w',0)
+    sys.stdout = open('../log/log_computevisb_%s.txt'%(time.strftime('%d-%m-%Y',time.localtime())),'w',0)
 
 ## Print all the arguments to log file
 for i in vars(args):
@@ -67,7 +73,6 @@ else:
     foldlen = int(tot_sam/nsam)
 print ('Setting NSAM=%d and FOLDLEN=%d'%(nsam,foldlen))
 
-
 V = {}
 antenna_map = {0: '84N', 1: '85N', 2: '86N', 3: '87N',
                4: '52N', 5: '53N', 6: '54N', 7: '55N',
@@ -86,7 +91,7 @@ with h5py.File(args.filename,'r') as fp:
     for chan in range(args.channels):
         V['chan%d'%chan] = {}
         for ant1 in range(args.antennas):
-            for ant2 in range(ant1+1,args.antennas):
+            for ant2 in range(ant1,args.antennas):
                 print('chan=%d\tant%s * ant%s'%(chan,antenna_map[ant1],antenna_map[ant2]))
                 V['chan%d'%chan]['%s-%s'%(antenna_map[ant1],antenna_map[ant2])] = comp_vis(fp['%s_chan%d'%(antenna_map[ant1],chan)],fp['%s_chan%d'%(antenna_map[ant2],chan)])
   

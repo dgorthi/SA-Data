@@ -33,9 +33,11 @@ parser.add_argument('-plot',type=str,choices=['abs','phase','real','imag'],nargs
 parser.add_argument('-gain','--gain', nargs=12, type=float, default=np.ones(12,dtype=float),
                     help='Correction gain factors (need to specify all \'em)')
 
-parser.add_argument('-jd','--julian-date',action='store_true',default=True,dest='jd',
-                    help='Plot against Julian Day instead of integrations')
+parser.add_argument('-no_jd','--no_julian-date',action='store_false',default=True,dest='jd',
+                    help='Plot against integrations instead of Julian day')
 
+parser.add_argument('-nowrap','--unwrap_phase',action='store_true',default=False,dest='nowrap',
+                    help='Unwrap phases when plotting phase of the visibilities')
 
 # Copied from redcal.py in heracal (https://github.com/HERA-Team/heracal/hercal/redcal.py)
 def get_pos_reds(antpos, precisionFactor=1e6):
@@ -194,9 +196,12 @@ for plot_type in args.plot:
         for chan in args.chan:
             plt.figure()
             plt.title('Phase   Channel:%d'%chan)
-            for ants in vis_corr[chan].keys():
-                #plt.plot(jds,np.unwrap(np.angle(vis_corr[chan][ants][::-1]),discont=1.5*np.pi)[::-1],label=ants)
-                plt.plot(jds,np.angle(vis_corr[chan][ants]),label=ants)
+            if (args.nowrap==True):
+                for ants in vis_corr[chan].keys():
+                    plt.plot(jds,np.angle(vis_corr[chan][ants]),label=ants)
+            else:
+                for ants in vis_corr[chan].keys():
+                    plt.plot(jds,np.unwrap(np.angle(vis_corr[chan][ants][::-1]),discont=1.5*np.pi)[::-1],label=ants)
             plt.legend()
 
     if (plot_type == 'real' or plot_type == 'imag'):
@@ -206,12 +211,10 @@ for plot_type in args.plot:
             plt.title('Channel:%d'%chan)
             if 'real' in args.plot:
                 for ants in vis_corr[chan].keys():
-                    plt.plot(jds,np.real(vis_corr[chan][ants]),label=ants)
-                    
+                    plt.plot(jds,np.real(vis_corr[chan][ants]),label=ants) 
             if 'imag' in args.plot:
                 for ants in vis_corr[chan].keys():
                     plt.plot(jds,np.imag(vis_corr[chan][ants]),label=ants)
-                    
             plt.legend()
 
         try:
