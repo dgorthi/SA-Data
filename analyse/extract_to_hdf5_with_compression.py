@@ -68,16 +68,31 @@ struct_fmt = '<%dh%dB'%(length_cpy,args.NACC)
 struct_len = struct.calcsize(struct_fmt)
 nsam = int(length_cpy/(args.antennas*args.channels*2))
 
-print ("Creating a global file for %d antennas and %d channels"%(args.antennas,args.channels))
-print ("Data from %s"%date)
-print ("Unpacking data from file: %s\n To file: %s"%(args.strt_filename,args.stop_filename))
-print ("Total number of files: %d"%len(files))
-print ("Output hdf5 file: %s"%('/'+directory+'/'+args.output))
-print ("Compressed using the bitshuffle algorithm")
+#print ("Creating a global file for %d antennas and %d channels"%(args.antennas,args.channels))
+#print ("Data from %s"%date)
+#print ("Unpacking data from file: %s\n To file: %s"%(args.strt_filename,args.stop_filename))
+#print ("Total number of files: %d"%len(files))
+#print ("Output hdf5 file: %s"%('/'+directory+'/'+args.output))
+#print ("Compressed using the bitshuffle algorithm")
 
 volts = {}
 
 with h5py.File('/'+directory+'/'+args.output,'a') as fp: 
+    ## Write metadata to file attributes
+    fp.attrs.create('Compressed',1)
+    fp.attrs.create('strt_file',args.strt_filename)
+    fp.attrs.create('end_file',args.stop_filename)
+    fp.attrs.create('date',date)
+    fp.attrs.create('Nants',args.antennas)
+    fp.attrs.create('Nchans',args.channels)
+    fp.attrs.create('N_bin_files',len(files))
+    fp.attrs.create('NACC',args.NACC)
+    fp.attrs.create('UDP_B',args.UDP)
+    fp.attrs.create('bin_filesize_MB', args.filesize)
+
+    for k,v in fp.attrs.items():
+        print(k,v)
+
     ## Create datasets
     block_size=0
     for ant in range(args.antennas):
