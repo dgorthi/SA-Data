@@ -26,9 +26,9 @@ parser.add_argument('-chan','--channels',type=int, default=3,
                     help='Number of channels to unpack')
 parser.add_argument('-N','--nsam',type=int, default=0,
                     help='Number of time samples user wants in the output. This sets the integration time.')                    
-parser.add_argument('-t','--integration_time', type=float, default=0,
+parser.add_argument('-t','--integration_time', type=float, default=5,
                     help='Integration time in seconds')
-parser.add_argument('-f','--sampling_freq', type=float, default=0,
+parser.add_argument('-f','--sampling_freq', type=float, default=200,
                     help='Sampling frequency [MHz] used to collect data')
 parser.add_argument('-files','--num_files',type=int,default=0,
                     help='Total number of binary files unpacked to create input hdf5 file')
