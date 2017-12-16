@@ -186,7 +186,7 @@ for plot_type in args.plot:
             plt.figure()
             plt.title('Absolute value   Channel:%d'%chan)
             for ants in vis_corr[chan].keys():
-                plt.plot(jds,np.abs(vis_corr[chan][ants]),label=ants)
+                plt.plot(jds,np.log10(np.abs(vis_corr[chan][ants])),label=ants)
             plt.legend()
 
     if (plot_type == 'phase'):
