@@ -10,11 +10,6 @@ import bitshuffle.h5
 import argparse
 import sys,time
 
-with h5py.File(args.filename,'r') as fp:
-    attrs = {}
-    for k,v in fp.attrs.items():
-        attrs[k] = v 
-
 parser = argparse.ArgumentParser(description='Read an input hdf5 file with antenna voltages and compute visibilities from it.'\
                                  'Folding period computed from meta data in the hdf5 header. Specify either (-t, -f, -files) '\
                                  'or (-nsam,-files) in that combination to override default folding period'\
@@ -22,32 +17,47 @@ parser = argparse.ArgumentParser(description='Read an input hdf5 file with anten
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('filename',type=str,
                     help= 'Name of the input hdf5 file. Compression technique does not matter.')
+
+args = parser.parse_known_args()
+
+with h5py.File(args[0].filename,'r') as fp:
+    attrs = {}
+    for k,v in fp.attrs.items():
+        attrs[k] = v 
+
 parser.add_argument('-log', '--log_output', action='store_true', default=False,
                     help='Log all output of this code')
 parser.add_argument('-o', '--output', type=str, default= 'Output_%s.cp'%(time.strftime('%d-%m-%Y_%H:%M:%S',time.localtime())),
                     help='Specify the cPickled output file name')
-parser.add_argument('-ant', '--antennas', type=int, default= attrs['Nants'],
+parser.add_argument('-ant', '--antennas', type=int,
                     help='Number of antennas in the array')
-parser.add_argument('-chan','--channels',type=int, default= attrs['Nchans'],
+parser.add_argument('-chan','--channels',type=int, 
                     help='Number of channels to unpack')
-parser.add_argument('-N','--nsam',type=int, default= 0,
+parser.add_argument('-N','--nsam',type=int, 
                     help='Number of time samples user wants in the output. This sets the integration time.')                    
 parser.add_argument('-t','--integration_time', type=float, default= 10,
                     help='Integration time in seconds')
 parser.add_argument('-f','--sampling_freq', type=float, default= 200,
                     help='Sampling frequency [MHz] used to collect data')
-parser.add_argument('-files','--num_files',type=int, default= attrs['N_bin_files'],
+parser.add_argument('-files','--num_files',type=int,
                     help='Total number of binary files unpacked to create input hdf5 file')
-parser.add_argument('--NACC',type=int, default= attrs['NACC'],
+parser.add_argument('--NACC',type=int, 
                     help='Number of UDP packets per buffer')
-parser.add_argument('--UDP', type=int, default= attrs['UDP_B'],
+parser.add_argument('--UDP', type=int,
                     help='Size (in bytes) of each UDP packet')
-parser.add_argument('--filesize', type=int, default= attrs['bin_filesize_MB'],
+parser.add_argument('--filesize', type=int,
                     help='Size of each input file in MB')
+
+parser.set_defaults(antennas=attrs['Nants'], channels=attrs['Nchans'],\
+                    num_files=attrs['N_bin_files'], NACC=attrs['NACC'],\
+                    UDP = attrs['UDP_B'], filesize=attrs['bin_filesize_MB'])
+
 args = parser.parse_args()
 
 if(args.log_output):
-    sys.stdout = open('../log/log_computevisb_%s.txt'%(time.strftime('%d-%m-%Y',time.localtime())),'w',0)
+    logfp = '../log/log_computevisb_%s.txt'%(time.strftime('%d-%m-%Y',time.localtime()))
+    print ('Writing output to %s'%logfp)
+    sys.stdout = open(logfp,'w',0)
 
 ## Print all the arguments to log file
 for i in vars(args):
