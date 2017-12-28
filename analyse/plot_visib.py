@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import cPickle as cp
-import argparse
-import sys
+import sys, argparse
+import ephem
 
 parser = argparse.ArgumentParser(description='Read an input cPickle file and plot the cross-correlation'\
                                  'between the antennas specified for all available channels (unless'\
@@ -121,6 +121,7 @@ def compute_jd(utc,day=10,month=10,year=2017,mjd=False):
 
 args = parser.parse_args()
 
+## Extract data from all files specified.
 
 if args.ants_set.lower() == 'pams':
     ant_list = [84,85,86,87,52,53,54,55,24,25,26,27]
@@ -133,17 +134,20 @@ for filename in args.files:
     with open(filename,'r') as fp:
         if vis==None:
             vis = cp.load(fp)
-            v = vis
+            Nsam = np.size(vis['chan0']['84N-85N'])    
         else:
             v = cp.load(fp)
+            Nsam = np.size(v['chan0']['84N-85N'])
             for chan in vis.keys():
                 for ants in vis[chan].keys():
                     vis[chan][ants] = np.append(vis[chan][ants],v[chan][ants]) 
-        jdrange = []
+
+        jdrange = []        
         timerange = filename.split('/')[-1].split('_')[-1].rstrip('.cp').split('-')
         for t in timerange:
-            jdrange.append(compute_jd(int(t.split(':')[0])+int(t.split(':')[1])/60. + 5))
-        jds = np.append(jds,np.linspace(jdrange[0],jdrange[1],num=np.size(v['chan0']['84N-85N']),endpoint=False))
+            d = ephem.Date(ephem.Date('2017/10/10 '+t) + 5*ephem.hour)  #Correct to UTC
+            jdrange.append(ephem.julian_date(d))
+        jds = np.append(jds,np.linspace(jdrange[0],jdrange[1],num=Nsam,endpoint=False))
 
 ## (1) Retrive and conj if order is opposite
 ## (2) Calibrate
