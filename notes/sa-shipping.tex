@@ -1,0 +1,117 @@
+\documentclass[12pt,usletter,english]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=cyan,
+}
+
+\urlstyle{same}
+
+\begin{document}
+\title{Voltage Recorder Setup} \author{Deepthi Gorthi} \maketitle
+
+Gbt-1u (the 1U Server in the box), has five 1G ethernet ports and one
+10G (SFP+) ethernet port. The five 1G ethernet can be located, on the
+back panel of the server, with respected to the VGA port according to
+the table below.
+
+\begin{center}
+  \begin{tabular}{| l | c | c | r |}
+    \hline
+    eno5 & eno3 & eno4 & \\
+    \hline
+    & eno1 & eno2 & VGA \\
+    \hline
+  \end{tabular}
+\end{center}
+
+The ports have been configured for the following connections:
+
+\paragraph{IP addresses}
+\begin{description}
+\item[eno1] DHCP. Should be connected to the Netgear Switch (GS748T),
+  to any of the private ports (1-32). This will let me access gbt-1u
+  through Paper1 which is connected to the
+  internet. \href{https://docs.google.com/presentation/d/1pqmiAIBzzXq71BUphQWKdoJBhLlbmE_w2vNg_Hh2KaE/edit#slide=id.p}{Link to diagram on HERA Wiki.}
+\item[eno2] static, 10.1.0.1 -- This port can be used to connect to
+  gbt-1u with a laptop for debugging network problems.
+\item[eno3] static, 10.10.0.100 -- Port to be connected to the
+  raspberry pi. I gave the raspberry pi a compatible static IP (10.10.0.233).
+\item[enp1s0] 10gb port, 10.10.10.10 -- to be connected to one of the
+  SFP+ ports on the SNAP. The SNAP SFP+ ports are currently wired to the
+  Arista 40GbE switch. The computer can be connected to the same
+  switch to establish a connection to the SNAP. There should be spare
+  cables in the container. If not, the cable going to hera-digi can be
+  borrowed.
+\end{description}
+
+\paragraph {Antennas}
+
+There are 12 antennas, all north polarizations only. They can be
+connected in order to the 12 SNAP inputs. The SNAP board inputs from
+left to right are given in the following table (read the table
+row-wise left to right, there is only one row on the SNAP). There's a pretty picture of this at 
+\url{https://casper.berkeley.edu/wiki/images/f/fe/SNAPv1_labled_assembly.pdf}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+  \hline
+  (Beside SFP+) 1PPS Out   & 1PPS In       & Synth Ref       & Clock In        \\ \hline
+  (SMA 5)  ADC Input 3  & (SMA 6) ADCI 2   & (SMA 7) ADCI 1  & (SMA 8) ADCI 0  \\ \hline
+  (SMA 9)  ADC Input 7  & (SMA 10) ADCI 6  & (SMA 11) ADCI 5 & (SMA 12) ADCI 4 \\ \hline
+  (SMA 13) ADC Input 11 & (SMA 14) ADCI 10 & (SMA 15) ADCI 9 & (SMA 16) ADCI 8 \\ \hline
+\end{tabular}
+\end{center}
+
+I extracted the roach inputs, corresponding to the antennas I want, on
+Oct 1 (1.30 pm PST). If they have changed since then, I can update
+this table. I does not matter if the SNAP ADC Inputs are connected in
+order or SMA Inputs are connected in order as long as it is noted
+down. Nevertheless I've added a prefered order in the last column of
+the table below- the SMA input number is counted assuming the one
+right next to the SFP+ port is 1.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+  \hline
+  Antenna Number & Roach Input & Panel Fxin & SNAP SMA \\
+  \hline
+  24   &   D F7 A2   &  p6 r1 c1  & 8  \\  \hline
+  25   &   D F7 A4   &  p6 r1 c2  & 7  \\  \hline
+  26   &   D F7 B2   &  p6 r1 c3  & 6  \\  \hline
+  27   &   D F7 B4   &  p6 r1 c4  & 5  \\  \hline
+  52   &   D F8 C2   &  p5 r5 c5  & 12 \\  \hline
+  53   &   D F8 D2   &  p5 r5 c6  & 11 \\  \hline
+  54   &   D F7 H2   &  p5 r5 c7  & 10 \\  \hline
+  55   &   D F5 D4   &  p4 r1 c3  & 9  \\  \hline
+  84   &   D F8 F2   &  p5 r5 c1  & 16 \\  \hline
+  85   &   D F8 G2   &  p5 r5 c2  & 15 \\  \hline
+  86   &   D F8 B2   &  p5 r5 c3  & 14 \\  \hline
+  87   &   D F8 A2   &  p5 r5 c4  & 13 \\  \hline
+\end{tabular}
+\end{center}
+
+\paragraph {Software}
+All the debugging and observation software is on
+\url{https://github.com/dgorthi/SA-Data}.
+
+The most useful one is SA-Data/obs/obs\_script.py which programs the
+SNAP board and lets you see the output spectra of all the analog
+inputs.
+
+In an ipython session type the following commands:
+\begin{lstlisting}
+  \%run obs_script.py 46 54 76 #chans to select
+  plot_chans() #for plotting all the analog inputs
+  plotspec(ant=<ant no.>) # To plot one analog input
+\end{lstlisting}
+
+\end{document}

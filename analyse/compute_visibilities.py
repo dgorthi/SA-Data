@@ -74,8 +74,14 @@ if(args.integration_time):
         sys.exit('Required input: -t <integration time in sec> -f <sampling frequency in MHz> -files <Number of files used to create the input hdf5 file>')
     
     sample_rate = args.sampling_freq*1e6/512. #One sample per 512 clks is output acc. to the hardware design
-    foldlen = int(args.integration_time*sample_rate)
-    nsam = int(tot_sam/foldlen)
+
+    ## Check if there are any samples being left out!!
+    try:
+        foldlen = int(args.integration_time*sample_rate)
+        nsam = int(tot_sam/foldlen)
+    except(ZeroDivisionError):
+        nsam = tot_sam
+        foldlen = 0
 else:
     if not(args.nsam) or not(args.num_files):
         sys.exit('Specify either (-t, -f, -files) or (-nsam,-files) in that combination to determine folding length and integration period.')
@@ -84,6 +90,7 @@ else:
 print ('Setting NSAM=%d and FOLDLEN=%d'%(nsam,foldlen))
 
 V = {}
+V['attrs'] = vars(args)
 antenna_map = {0: '84N', 1: '85N', 2: '86N', 3: '87N',
                4: '52N', 5: '53N', 6: '54N', 7: '55N',
                8: '24N', 9: '25N', 10:'26N', 11:'27N'  }
