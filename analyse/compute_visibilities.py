@@ -67,15 +67,19 @@ for i in vars(args):
 #total no of samples = samples per udp pkt * udp pkts per cpy buf * cpy bufs per file * total number of files
 tot_sam = args.UDP/(4*args.antennas*args.channels) * args.NACC * int((args.filesize*1024*1024.)/(args.NACC*args.UDP + args.NACC)) * args.num_files
 
-if(args.integration_time):
+if(args.sampling_freq):
     if (args.nsam):
         print('Overriding the nsam=%d input. Set sampling frequency to zero to use that instead'%args.nsam)
-    if not(args.sampling_freq) or not(args.num_files):
+    if not(args.num_files):
         sys.exit('Required input: -t <integration time in sec> -f <sampling frequency in MHz> -files <Number of files used to create the input hdf5 file>')
-    
+#    if not(args.integration_time):
+#        foldlen = 0
+#        nsam = tot_sam
     sample_rate = args.sampling_freq*1e6/512. #One sample per 512 clks is output acc. to the hardware design
-    foldlen = int(args.integration_time*sample_rate)
-    nsam = int(tot_sam/foldlen)
+    #foldlen = int(args.integration_time*sample_rate)
+    #nsam = int(tot_sam/foldlen)
+    nsam = args.num_files
+    foldlen = tot_sam/nsam
 else:
     if not(args.nsam) or not(args.num_files):
         sys.exit('Specify either (-t, -f, -files) or (-nsam,-files) in that combination to determine folding length and integration period.')
