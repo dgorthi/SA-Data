@@ -88,6 +88,7 @@ else:
 print ('Setting NSAM=%d and FOLDLEN=%d'%(nsam,foldlen))
 
 V = {}
+V['attrs'] = vars(args)
 antenna_map = {0: '84N', 1: '85N', 2: '86N', 3: '87N',
                4: '52N', 5: '53N', 6: '54N', 7: '55N',
                8: '24N', 9: '25N', 10:'26N', 11:'27N'  }

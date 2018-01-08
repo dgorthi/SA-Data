@@ -111,14 +111,6 @@ def compute_correlation(ant_list):
 
     return tempvis
 
-def compute_jd(utc,day=10,month=10,year=2017,mjd=False):
-    jd = 367*year -np.round(7*(year+np.round((month+9)/12))/4)\
-         +np.round((275*month)/9) +day +1721013.5 +utc/24
-    if mjd==False:
-        return jd
-    else:
-        return jd-2400000.5 
-
 args = parser.parse_args()
 
 ## Extract data from all files specified.
@@ -134,7 +126,8 @@ for filename in args.files:
     with open(filename,'r') as fp:
         if vis==None:
             vis = cp.load(fp)
-            Nsam = np.size(vis['chan0']['84N-85N'])    
+            Nsam = np.size(vis['chan0']['84N-85N'])
+            v = vis    
         else:
             v = cp.load(fp)
             Nsam = np.size(v['chan0']['84N-85N'])
@@ -143,11 +136,13 @@ for filename in args.files:
                     vis[chan][ants] = np.append(vis[chan][ants],v[chan][ants]) 
 
         jdrange = []        
-        timerange = filename.split('/')[-1].split('_')[-1].rstrip('.cp').split('-')
-        for t in timerange:
-            d = ephem.Date(ephem.Date('2017/10/10 '+t) + 5*ephem.hour)  #Correct to UTC
+        strt_t = [s for s in v['metadat']['strt_file'].split('_') if ':' in s][0]
+        stop_t = [s for s in v['metadat']['end_file'].split('_')  if ':' in s][0]
+        date = [s for s in v['metadat']['end_file'].split('_')  if '-' in s][0].replace('-','/')
+        for t in [strt_t,stop_t]:
+            d = ephem.Date(ephem.Date(date+' '+t) + 5*ephem.hour)  #Correct to UTC
             jdrange.append(ephem.julian_date(d))
-        jds = np.append(jds,np.linspace(jdrange[0],jdrange[1],num=Nsam,endpoint=False))
+        jds = np.append(jds,np.linspace(jdrange[0],jdrange[1],num=Nsam,endpoint=True))
 
 ## (1) Retrive and conj if order is opposite
 ## (2) Calibrate

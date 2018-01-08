@@ -1,0 +1,43 @@
+PAPER F Engine input to plate connector:
+
+-- +- f1 -+- f2 -+- f3 -+- f4 -+- f5 -+- f6 -+- f7 -+- f8 -+ --
+A1 |p2r6c6|p2r4c1|p1r6c4|p4r6c5|p4r6c1|p3r6c4|p6r2c1|p5r6c4| A1
+A2 |p2r5c6|p2r3c1|p1r5c4|p4r5c5|p4r5c1|p3r5c4|p6r1c1|p5r5c4| A2
+A3 |p2r4c6|p2r2c1|p1r4c4|p4r2c6|p4r4c1|p3r4c4|p6r2c2|p5r4c4| A3
+A4 |p2r3c6|p2r1c1|p1r3c4|p4r1c6|p4r3c1|p3r3c4|p6r1c2|p5r3c4| A4
+-- +- f1 -+- f2 -+- f3 -+- f4 -+- f5 -+- f6 -+- f7 -+- f8 -+ --
+B1 |p2r4c7|p2r6c1|p1r6c3|p4r4c7|p4r2c1|p3r6c3|p6r2c3|p5r6c3| B1
+B2 |p2r3c7|p2r5c1|p1r5c3|p4r3c7|p4r1c1|p3r5c3|p6r1c3|p5r5c3| B2
+B3 |p2r2c7|p2r2c2|p1r2c4|p4r2c7|p4r6c2|p3r2c4|p6r2c4|p5r2c4| B3
+B4 |p2r1c7|p2r1c2|p1r1c4|p4r1c7|p4r5c2|p3r1c4|p6r1c4|p5r1c4| B4
+-- +- f1 -+- f2 -+- f3 -+- f4 -+- f5 -+- f6 -+- f7 -+- f8 -+ --
+C1 |p2r6c7|p2r6c2|p1r6c5|p4r6c8|p4r4c2|p3r4c5|p6r2c5|p5r6c5| C1
+C2 |p2r5c7|p2r5c2|p1r5c5|p4r5c8|p4r3c2|p3r3c5|p6r1c5|p5r5c5| C2
+C3 |p2r6c8|p2r6c3|p1r4c5|p4r4c8|p4r2c2|p3r2c5|p6r2c6|p5r2c5| C3
+C4 |p2r5c8|p2r5c3|p1r3c5|p4r3c8|p4r1c2|p3r1c5|p6r1c6|p5r1c5| C4
+-- +- f1 -+- f2 -+- f3 -+- f4 -+- f5 -+- f6 -+- f7 -+- f8 -+ --
+D1 |p2r4c8|p2r4c2|p1r2c5|p4r6c7|p4r4c3|p3r6c6|p6r2c7|p5r6c6| D1
+D2 |p2r3c8|p2r3c2|p1r1c5|p4r5c7|p4r3c3|p3r5c6|p6r1c7|p5r5c6| D2
+D3 |p2r2c8|p2r4c3|p1r6c6|p4r2c8|p4r2c3|p3r4c6|p6r2c8|p5r4c6| D3
+D4 |p2r1c8|p2r3c3|p1r5c6|p4r1c8|p4r1c3|p3r3c6|p6r1c8|p5r3c6| D4
+-- +- f1 -+- f2 -+- f3 -+- f4 -+- f5 -+- f6 -+- f7 -+- f8 -+ --
+E1 |p2r2c3|p1r4c6|p1r4c1|p4r6c4|p3r6c5|p3r6c1|p5r4c5|p5r4c1| E1
+E2 |p2r1c3|p1r3c6|p1r3c1|p4r5c4|p3r5c5|p3r5c1|p5r3c5|p5r3c1| E2
+E3 |p2r2c4|p1r2c6|p1r2c1|p4r4c4|p3r2c6|p3r6c2|p5r2c6|p5r2c1| E3
+E4 |p2r1c4|p1r1c6|p1r1c1|p4r3c4|p3r1c6|p3r5c2|p5r1c6|p5r1c1| E4
+-- +- f1 -+- f2 -+- f3 -+- f4 -+- f5 -+- f6 -+- f7 -+- f8 -+ --
+F1 |p2r4c4|p1r6c7|p1r6c2|p4r6c3|p3r4c7|p3r4c1|p5r4c7|p5r6c1| F1
+F2 |p2r3c4|p1r5c7|p1r5c2|p4r5c3|p3r3c7|p3r3c1|p5r3c7|p5r5c1| F2
+F3 |p2r4c5|p1r4c7|p1r4c2|p4r2c4|p3r2c7|p3r4c2|p5r2c7|p5r2c2| F3
+F4 |p2r3c5|p1r3c7|p1r3c2|p4r1c4|p3r1c7|p3r3c2|p5r1c7|p5r1c2| F4
+-- +- f1 -+- f2 -+- f3 -+- f4 -+- f5 -+- f6 -+- f7 -+- f8 -+ --
+G1 |p2r6c5|p1r2c7|p1r6c1|p4r4c5|p3r6c8|p3r2c1|p5r6c8|p5r6c2| G1
+G2 |p2r5c5|p1r1c7|p1r5c1|p4r3c5|p3r5c8|p3r1c1|p5r5c8|p5r5c2| G2
+G3 |p2r2c5|p1r6c8|p1r2c2|p4r2c5|p3r4c8|p3r2c2|p5r4c8|p5r4c3| G3
+G4 |p2r1c5|p1r5c8|p1r1c2|p4r1c5|p3r3c8|p3r1c2|p5r3c8|p5r3c3| G4
+-- +- f1 -+- f2 -+- f3 -+- f4 -+- f5 -+- f6 -+- f7 -+- f8 -+ --
+H1 |p2r6c4|p1r4c8|p1r4c3|p4r6c6|p3r6c7|p3r4c3|p5r6c7|p5r4c2| H1
+H2 |p2r5c4|p1r3c8|p1r3c3|p4r5c6|p3r5c7|p3r3c3|p5r5c7|p5r3c2| H2
+H3 |p2r2c6|p1r2c8|p1r2c3|p4r4c6|p3r2c8|p3r2c3|p5r2c8|p5r2c3| H3
+H4 |p2r1c6|p1r1c8|p1r1c3|p4r3c6|p3r1c8|p3r1c3|p5r1c8|p5r1c3| H4
+-- +- f1 -+- f2 -+- f3 -+- f4 -+- f5 -+- f6 -+- f7 -+- f8 -+ --
