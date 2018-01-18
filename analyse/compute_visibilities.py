@@ -17,14 +17,6 @@ parser = argparse.ArgumentParser(description='Read an input hdf5 file with anten
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('filename',type=str,
                     help= 'Name of the input hdf5 file. Compression technique does not matter.')
-
-args = parser.parse_known_args()
-
-with h5py.File(args[0].filename,'r') as fp:
-    attrs = {}
-    for k,v in fp.attrs.items():
-        attrs[k] = v 
-
 parser.add_argument('-log', '--log_output', action='store_true', default=False,
                     help='Log all output of this code')
 parser.add_argument('-o', '--output', type=str, default= 'Output_%s.cp'%(time.strftime('%d-%m-%Y_%H:%M:%S',time.localtime())),
@@ -48,20 +40,38 @@ parser.add_argument('--UDP', type=int,
 parser.add_argument('--filesize', type=int,
                     help='Size of each input file in MB')
 
-parser.set_defaults(antennas=attrs['Nants'], channels=attrs['Nchans'],\
-                    num_files=attrs['N_bin_files'], NACC=attrs['NACC'],\
-                    UDP = attrs['UDP_B'], filesize=attrs['bin_filesize_MB'])
-
 args = parser.parse_args()
+
+V = {}
+V['metadat'] = {}
+
+with h5py.File(args.filename,'r') as fp:
+    if not (args.antennas):
+        args.antennas = fp.attrs['Nants']
+    if not (args.channels):
+        args.channels = fp.attrs['Nchans']
+    if not (args.num_files):
+        args.num_files = fp.attrs['N_bin_files']
+    if not (args.NACC):
+        args.NACC = fp.attrs['NACC']
+    if not (args.UDP):
+        args.UDP = fp.attrs['UDP_B']
+    if not (args.filesize):
+        args.filesize = fp.attrs['bin_filesize_MB']
+    V['metadat']['strt_file'] = fp.attrs['strt_file']
+    V['metadat']['end_file'] = fp.attrs['end_file']
+    V['metadat']['date'] = fp.attrs['date']
+    fp.close()
 
 if(args.log_output):
     logfp = '../log/log_computevisb_%s.txt'%(time.strftime('%d-%m-%Y',time.localtime()))
     print ('Writing output to %s'%logfp)
     sys.stdout = open(logfp,'w',0)
 
-## Print all the arguments to log file
+## Print all the arguments to log file and to V
 for i in vars(args):
-    print i,vars(args)['%s'%i]
+    print i,vars(args)[i]
+    V['metadat'][i] = vars(args)[i]
     
 ## Determine integration period
 #total no of samples = samples per udp pkt * udp pkts per cpy buf * cpy bufs per file * total number of files
@@ -87,8 +97,6 @@ else:
     foldlen = int(tot_sam/nsam)
 print ('Setting NSAM=%d and FOLDLEN=%d'%(nsam,foldlen))
 
-V = {}
-V['attrs'] = vars(args)
 antenna_map = {0: '84N', 1: '85N', 2: '86N', 3: '87N',
                4: '52N', 5: '53N', 6: '54N', 7: '55N',
                8: '24N', 9: '25N', 10:'26N', 11:'27N'  }
@@ -110,7 +118,7 @@ with h5py.File(args.filename,'r') as fp:
                 print('chan=%d\tant%s * ant%s'%(chan,antenna_map[ant1],antenna_map[ant2]))
                 V['chan%d'%chan]['%s-%s'%(antenna_map[ant1],antenna_map[ant2])] = comp_vis(fp['%s_chan%d'%(antenna_map[ant1],chan)],fp['%s_chan%d'%(antenna_map[ant2],chan)])
   
-print('Finished! Writing data to file..')
+print('Finished! Adding metadata..')
 
 with open(args.output,'wb') as fp:
     cp.dump(V,fp,protocol=2)
