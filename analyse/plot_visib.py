@@ -1,116 +1,38 @@
 import numpy as np
+import numpy.ma as ma
 import matplotlib.pyplot as plt
 import cPickle as cp
-import sys, argparse
-import ephem
+import os,sys, argparse, glob
+import ephem, time
+from astropy.time import Time
+import aipy as ap
 
 parser = argparse.ArgumentParser(description='Read an input cPickle file and plot the cross-correlation'\
                                  'between the antennas specified for all available channels (unless'\
                                  'otherwise spcified).',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-
 parser.add_argument('files',type=str, nargs='+',
                     help= 'Name of the input CPickle file containing the cross-correlations')
-
 parser.add_argument('-ants_set',type=str,choices=['nrao','pams'],default='pams',
                     help= 'The set of antennas data was collected from') 
-
 parser.add_argument('-ant',type=int,default=0,
                     help='All cross correlations for this antenna can be plotted')
-
 parser.add_argument('-cc','--cross_corr', nargs=2, action='append', type=int, dest='cc',
                     help='Two antennas that should be cross-correlated')
-
 parser.add_argument('-b', '--baseline', action='store_true', default=False, dest='bl',
                     help='Compute all cross correlations of the baseline specified by -cc flag')
-
 parser.add_argument('-chan','--channel', nargs='+', type=int, default=[0,1,2], dest='chan',
                     help='Channel to plot visibility for')
-
 parser.add_argument('-plot',type=str,choices=['abs','phase','real','imag'],nargs='+',default='phase',
                     help='Complex numbers are multifaceted!')
-
 parser.add_argument('-gain','--gain', nargs=12, type=float, default=np.ones(12,dtype=float),
                     help='Correction gain factors (need to specify all \'em)')
-
 parser.add_argument('-no_jd','--no_julian-date',action='store_false',default=True,dest='jd',
                     help='Plot against integrations instead of Julian day')
-
 parser.add_argument('-nowrap','--unwrap_phase',action='store_true',default=False,dest='nowrap',
                     help='Unwrap phases when plotting phase of the visibilities')
-
-# Copied from redcal.py in heracal (https://github.com/HERA-Team/heracal/hercal/redcal.py)
-def get_pos_reds(antpos, precisionFactor=1e6):
-    """ Figure out and return list of lists of redundant baseline pairs. Ordered by length.
-        All baselines have the same orientation with a preference for positive b_y and,
-        when b_y==0, positive b_x where b((i,j)) = pos(i) - pos(j).
-
-        Args:
-            antpos: dictionary of antenna positions in the form {ant_index: np.array([x,y,z])}.
-            precisionFactor: factor that when multiplied by different baseline vectors and rounded
-                to integer values, gives unique integer tuples for unique baselines
-
-        Returns:
-            reds: list of lists of redundant tuples of antenna indices (no polarizations)
-    """
-
-    keys = antpos.keys()
-    reds = {}
-    array_is_2D = np.all(np.all(np.array(antpos.values())[:,2]==0))
-    for i,ant1 in enumerate(keys):
-        for ant2 in keys[i+1:]:
-            delta = tuple((precisionFactor*2.0 * (np.array(antpos[ant1]) - np.array(antpos[ant2]))).astype(int))
-            # Multiply by 2.0 because rounding errors can mimic changes below the grid spacing
-            if delta[0] > 0 or (delta[0]==0 and delta[1] > 0) or (delta[0]==0 and delta[1]==0 and delta[2] > 0):
-                bl_pair = (ant1,ant2)
-            else:
-                delta = tuple([-d for d in delta])
-                bl_pair = (ant2,ant1)
-            # Check to make sure reds doesn't have the key plus or minus rounding error
-            p_or_m = (0,-1,1)
-            if array_is_2D:
-                epsilons = [[dx,dy,0] for dx in p_or_m for dy in p_or_m]
-            else:
-                epsilons = [[dx,dy,dz] for dx in p_or_m for dy in p_or_m for dz in p_or_m]
-            for epsilon in epsilons:
-                newKey = (delta[0]+epsilon[0], delta[1]+epsilon[1], delta[2]+epsilon[2])
-                if reds.has_key(newKey):
-                    reds[newKey].append(bl_pair)
-                    break
-            if not reds.has_key(newKey):
-                reds[delta] = [bl_pair]
-    orderedDeltas = [delta for (length,delta) in sorted(zip([np.linalg.norm(delta) for delta in reds.keys()],reds.keys()))]
-    return [reds[delta] for delta in orderedDeltas]
-
-def compute_correlation(ant_list):
-    """ Computes the cross-correlation of the two antennas given and 
-        corrects for the antenna gains as well.
-        
-        Args: 
-            ant1:  int,    Antenna number (from HERA position map)
-            ant2:  int,    Antenna number (cannot be same as ant1)
-            gain1: float,  Gain of antenna1. default: 1
-            gain2: float,  Gain of antenna2. default: 1
-    
-        Returns: 
-            vis: complex array of cross-correlation amplitudes
-    """
-    tempvis = {}
-    for chan in args.chan:
-        tempvis[chan] = {}
-        for ant1,ant2 in ant_list:
-            if ant1==ant2:
-                print ("Auto correlations not available in this version!")
-                continue
-            try:
-                data = vis['chan%d'%chan]['%dN-%dN'%(ant1,ant2)]
-            except(KeyError):
-                data = np.conj(vis['chan%d'%chan]['%dN-%dN'%(ant2,ant1)])     
-
-            tempvis[chan]['%d-%d'%(ant1,ant2)] = gains[chan][ant1]*np.conj(gains[chan][ant2])*data 
-
-    return tempvis
-
+parser.add_argument('-compare','--compare',action='store_true',default=False,
+                    help='Compare with HERA correlator data of the next day')
 args = parser.parse_args()
 
 ## Extract data from all files specified.
@@ -126,26 +48,24 @@ for filename in args.files:
     with open(filename,'r') as fp:
         if vis==None:
             vis = cp.load(fp)
-            Nsam = np.size(vis['chan0']['84N-85N'])
-            v = vis    
         else:
             v = cp.load(fp)
-            Nsam = np.size(v['chan0']['84N-85N'])
             for chan in vis.keys():
                 for ants in vis[chan].keys():
-                    vis[chan][ants] = np.append(vis[chan][ants],v[chan][ants]) 
+                    vis[chan][ants] = np.append(vis[chan][ants],v[chan][ants])
 
-        jdrange = []        
-        strt_t = [s for s in v['metadat']['strt_file'].split('_') if ':' in s][0]
-        stop_t = [s for s in v['metadat']['end_file'].split('_')  if ':' in s][0]
-        date = [s for s in v['metadat']['end_file'].split('_')  if '-' in s][0].replace('-','/')
-        for t in [strt_t,stop_t]:
-            d = ephem.Date(ephem.Date(date+' '+t) + 5*ephem.hour)  #Correct to UTC
-            jdrange.append(ephem.julian_date(d))
-        jds = np.append(jds,np.linspace(jdrange[0],jdrange[1],num=Nsam,endpoint=True))
+nsam = [len(vis[chan][ant]) for ant in vis[chan].keys() for chan in vis.keys() if not chan=='metadat'][0]
 
-## (1) Retrive and conj if order is opposite
-## (2) Calibrate
+## Hard coding in time range
+strt_time = 1507649941; dt = 56*8*8192*512/200e6
+longitude = 21.44
+t = np.arange(strt_time,strt_time+nsam*dt,step=dt)
+trange = Time(t,format='unix')
+lst = trange.sidereal_time('apparent','21.443d')
+sr = lst.radian   #sidereal radians
+
+
+## (1) Retrive and conj if order is opposite, calibrate.
 vis_corr = {}
 gains = {}
 for chan in args.chan:
@@ -179,16 +99,44 @@ if args.bl:
     for chan in args.chan:
         vis_corr[chan].update(visb_ants[chan])
 
-## (3) Plot
+if args.compare:
+    print ("Retreiving correlator data...")
+    files = glob.glob('/home/deepthi/Documents/HERA/Data/Oct11/oct11/2458038/zen.2458038.[1-3]*')
+    files.sort()
+    uv_chans = np.array([804,624,584])//4
+    ants = ','.join(vis_corr[chan].keys()).replace('-','_')
+
+    _uvlst,_uvdata = plot_uv_data(files,ants,'xx')
+
+    # Select only data in the range to be compared
+    mask = np.where((_uvlst<sr.max()) & (_uvlst>sr.min()))
+    uvlst = _uvlst[mask]
+    uvdata = {}
+    for ant in _uvdata.keys():
+        uvtemp = ma.getdata(_uvdata[ant])[mask]
+        #average over 4 channels
+        uvdata[ant] = np.sum(uvtemp.reshape(-1,256,4),axis=2)
+
+## (2) Plot
+fig,ax={},{}
 for plot_type in args.plot:
     if (plot_type == 'abs'):
         print ("Plotting absolute value of visibilities")
+        fig['abs']={};ax['abs']={}
         for chan in args.chan:
-            plt.figure()
-            plt.title('Absolute value   Channel:%d'%chan)
-            for ants in vis_corr[chan].keys():
-                plt.plot(jds,np.log10(np.abs(vis_corr[chan][ants])),label=ants)
-            plt.legend()
+            fig['abs'][chan],ax['abs'][chan] = plt.subplots(1,1)
+            for ant in vis_corr[chan].keys():
+                amp = np.log10(np.abs(vis_corr[chan][ant]))           
+                ax['abs'][chan].plot(sr,amp-amp.max(),label=ant)
+                if args.compare:
+                    try: amp = np.log10(np.abs(uvdata[ant][:,uv_chans[chan]]))
+                    except KeyError:
+                        ant = '-'.join(ant.split('-')[::-1])
+                        amp = np.log10(np.abs(uvdata[ant][:,uv_chans[chan]]))
+                    ax['abs'][chan].plot(uvlst,amp-amp.max(),label='HERA %s'%ant)
+
+            fig['abs'][chan].suptitle('Absolute value   Channel:%d'%chan)
+            ax['abs'][chan].legend()
 
     if (plot_type == 'phase'):
         print ("Plotting phase of visibilities")
