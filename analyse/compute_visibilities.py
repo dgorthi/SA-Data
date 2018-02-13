@@ -5,10 +5,12 @@
 
 import numpy as np
 import cPickle as cp
+from astropy.time import Time
 import h5py
 import bitshuffle.h5
 import argparse
 import sys,time
+import glob
 
 parser = argparse.ArgumentParser(description='Read an input hdf5 file with antenna voltages and compute visibilities from it.'\
                                  'Folding period computed from meta data in the hdf5 header. Specify either (-t, -f, -files) '\
@@ -30,7 +32,7 @@ parser.add_argument('-f','--sampling_freq', type=float, default= 200,
 args = parser.parse_args()
 
 if(args.log_output):
-    logfp = '../log/log_computevisb_%s.txt'%(time.strftime('%d-%m-%Y',time.localtime()))
+    logfp = '../log/log_computevisb_%s.txt'%(args.filename.rstrip('.hdf5')[-11:])
     print ('Writing output to %s'%logfp)
     sys.stdout = open(logfp,'w',0)
 
@@ -76,22 +78,41 @@ antenna_map = {0: '84N', 1: '85N', 2: '86N', 3: '87N',
 # antenna_map = {0: '27E', 1: '27N', 2: '84E', 3: '84N'  }
 
 def comp_vis(a1,a2):
-    vis = np.zeros([3,nsam],dtype=np.complex64)
-    for i in range(nsam):
-        print(i)
-        vis[i] = np.sum(a1[i*foldlen:(i+1)*foldlen]*np.conjugate(a2[i*foldlen:(i+1)*foldlen]))
+    vis = np.zeros([nsam,3],dtype=np.complex64)
+    print a1,a2
+    with h5py.File(args.filename,'r') as fp:
+        ant1 = [fp['%s_chan0'%a1],fp['%s_chan1'%a1],fp['%s_chan2'%a1]]
+        ant2 = [fp['%s_chan0'%a2],fp['%s_chan1'%a2],fp['%s_chan2'%a2]]
+        for i in range(nsam):
+            print i
+            s = i*foldlen; e = (i+1)*foldlen
+            vis[i] = np.sum([c1[s:e]*np.conjugate(c2[s:e]) for c1,c2 in zip(ant1,ant2)],axis=1)
+    fp.close()
     return vis
 
-with h5py.File(args.filename,'r') as fp:
-    for ant1 in range(meta['antennas']):
-        for ant2 in range(ant1,meta['antennas']):
-            print('\n\nant%s * ant%s'%(antenna_map[ant1],antenna_map[ant2]))
-            V['%s-%s'%(antenna_map[ant1],antenna_map[ant2])] = comp_vis(fp['%s_chan%d'%(antenna_map[ant1],chan)],fp['%s_chan%d'%(antenna_map[ant2],chan)])                
-            for chan in range(meta['channels']):
-                v.append()
-    fp.close()
+for ant1 in range(meta['antennas']):
+    for ant2 in range(ant1,meta['antennas']):
+        print('\n\nant%s * ant%s'%(antenna_map[ant1],antenna_map[ant2]))
+        V['%s-%s'%(antenna_map[ant1],antenna_map[ant2])] = comp_vis(antenna_map[ant1],antenna_map[ant2])
 
-print('Finished! Writing output to file..')
+print('Finished! Computing time array..')
+
+# Compute unix time
+file_list = filter(lambda fn: 'Oct10_PAMs' in fn, glob.glob('/data/dgorthi/*'))
+file_list.sort()
+idx = file_list.index(args.filename)
+
+totnsam = 0
+for i in range(idx):
+    with h5py.File(file_list[i],'r') as fp:
+        totnsam += fp.attrs['N_bin_files']
+    fp.close()
+ 
+dt = meta['integration_time']
+strt_time = 1507649941 + totnsam*dt
+t = np.arange(strt_time,strt_time+nsam*dt,step=dt)
+V['unix_time'] = Time(t,format='unix')
+
 
 with open(args.output,'wb') as fp:
     cp.dump(V,fp,protocol=2)
