@@ -5,7 +5,7 @@
 
 import numpy as np
 import cPickle as cp
-from astropy.time import Time
+from astropy.time import Time,TimeDelta
 import h5py
 import bitshuffle.h5
 import argparse
@@ -108,11 +108,9 @@ for i in range(idx):
         totnsam += fp.attrs['N_bin_files']
     fp.close()
  
-dt = meta['integration_time']
-strt_time = 1507649941 + totnsam*dt
-t = np.arange(strt_time,strt_time+nsam*dt,step=dt)
-V['unix_time'] = Time(t,format='unix')
-
+strt_time = Time(1507649941, format='unix')
+dt = TimeDelta(meta['integration_time'], format='sec')
+V['unix_time'] = strt_time + np.arange(totnsam,totnsam+nsam)*dt
 
 with open(args.output,'wb') as fp:
     cp.dump(V,fp,protocol=2)
