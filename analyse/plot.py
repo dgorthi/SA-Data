@@ -1,3 +1,5 @@
+import numpy as np
+
 # Copied from redcal.py in heracal (https://github.com/HERA-Team/heracal/hercal/redcal.py)
 def get_pos_reds(antpos, precisionFactor=1e6):
     """ Figure out and return list of lists of redundant baseline pairs. Ordered by length.
@@ -75,7 +77,7 @@ def get_uvdata(files,ant,pol):
     return np.asarray(lst), uvdata
     
 
-def get_corr(vis,ants,gain=(1,1)):
+def get_corr(vis,ants):
     """ Extracts the cross-correlation of the two antennas given and 
         corrects for the antenna gains, if provided.
         
@@ -89,17 +91,11 @@ def get_corr(vis,ants,gain=(1,1)):
             vis: complex array of cross-correlation amplitudes
     """
     tempvis = {}
-    for chan in vis.keys():
-        tempvis[chan] = {}
-        for ant1,ant2 in ants:
-            if ant1==ant2:
-                print ("Auto correlations not available in this version!")
-                continue
-            try:
-                data = vis['chan%d'%chan]['%dN-%dN'%(ant1,ant2)]
-                tempvis[chan]['%d-%d'%(ant1,ant2)] = gain[0]*np.conj(gain[1])*data
-            except(KeyError):
-                data = np.conj(vis['chan%d'%chan]['%dN-%dN'%(ant2,ant1)])     
-                tempvis[chan]['%d-%d'%(ant1,ant2)] = gain[1]*np.conj(gains[0])*data
+    for ant1,ant2 in ants:
+        if ant1==ant2:
+            print ("Auto correlations not available in this version!")
+            continue
+        try: tempvis['%d-%d'%(ant1,ant2)] = vis['%dN-%dN'%(ant1,ant2)]#*gain[0]*np.conj(gain[1])
+        except(KeyError): tempvis['%d-%d'%(ant1,ant2)] = np.conj(vis['%dN-%dN'%(ant2,ant1)])#*gain[1]*np.conj(gains[0])
 
     return tempvis

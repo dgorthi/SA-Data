@@ -6,6 +6,7 @@ import os,sys, argparse, glob
 import ephem, time
 from astropy.time import Time
 import aipy as ap
+import plot
 
 parser = argparse.ArgumentParser(description='Read an input cPickle file and plot the cross-correlation'\
                                  'between the antennas specified for all available channels (unless'\
@@ -46,64 +47,56 @@ vis,jds = None, []
 
 for filename in args.files:
     with open(filename,'r') as fp:
-        if vis==None:
-            vis = cp.load(fp)
+        if vis==None:  vis = cp.load(fp)
         else:
             v = cp.load(fp)
-            for chan in vis.keys():
-                for ants in vis[chan].keys():
-                    vis[chan][ants] = np.append(vis[chan][ants],v[chan][ants])
+            for k in vis.keys():
+                if k == 'metadata': 
+                    for k2 in vis['metadata'].keys():
+                        vis['metadata'][k2] = np.append(vis[k][k2], v[k][k2])
+                    continue
+                vis[k] = np.concatenate((vis[k],v[k]),axis=0)
 
-nsam = [len(vis[chan][ant]) for ant in vis[chan].keys() for chan in vis.keys() if not chan=='metadat'][0]
+nsam = [len(vis[ant]) for ant in vis.keys() if not ant=='metadata']
+assert(len(set(nsam)) == 1),'What the hell.'
 
-## Hard coding in time range
-strt_time = 1507649941; dt = 56*8*8192*512/200e6
-longitude = 21.44
-t = np.arange(strt_time,strt_time+nsam*dt,step=dt)
-trange = Time(t,format='unix')
+trange = Time(vis['unix_time'])
 lst = trange.sidereal_time('apparent','21.443d')
 sr = lst.radian   #sidereal radians
-
 
 ## (1) Retrive and conj if order is opposite, calibrate.
 vis_corr = {}
 gains = {}
-for chan in args.chan:
-    vis_corr[chan] = {}
-    gains[chan] = {}
-    for ant in ant_list:
-        gains[chan][ant] = 1
+for ant in ant_list:
+    gains[ant] = [1,1,1]
 
 if args.ant:
     ants = [(args.ant,a) for a in ant_list]
     ants.remove((args.ant,args.ant))
-    visb_ants = compute_correlation(ants)
-    for chan in args.chan:
-        vis_corr[chan].update(visb_ants[chan])
+    visb_ants = plot.get_corr(vis,ants)
+    vis_corr.update(visb_ants)
 
 if args.cc:
-    visb_ants = compute_correlation(args.cc)        
-    for chan in args.chan:
-        vis_corr[chan].update(visb_ants[chan])
+    visb_ants = plot.get_corr(vis,args.cc)
+    vis_corr.update(visb_ants)
 
 if args.bl:
     antpos = {24: [0,2,0], 25: [1,2,0], 26: [2,2,0], 27: [3,2,0],
               52: [0,1,0], 53: [1,1,0], 54: [2,1,0], 55: [3,1,0],
               84: [0,0,0], 85: [1,0,0], 86: [2,0,0], 87: [3,0,0]}
-    redants = get_pos_reds(antpos)
+    redants = plot.get_pos_reds(antpos)
     red_bls = [x for x in redants if tuple(args.cc[0]) in x]
     if not red_bls:
         red_bls = [[y[::-1] for y in [x for x in redants if tuple(args.cc[0][::-1]) in x][0]]]
 
-    visb_ants = compute_correlation(red_bls[0])
-    for chan in args.chan:
-        vis_corr[chan].update(visb_ants[chan])
+    visb_ants = plot.get_corr(vis,red_bls[0])
+    vis_corr.update(visb_ants)
 
 if args.compare:
     print ("Retreiving correlator data...")
     files = glob.glob('/home/deepthi/Documents/HERA/Data/Oct11/oct11/2458038/zen.2458038.[1-3]*')
     files.sort()
-    uv_chans = np.array([804,624,584])//4
+    uv_chans = (np.array([804,624,584])-2)//4
     ants = ','.join(vis_corr[chan].keys()).replace('-','_')
 
     _uvlst,_uvdata = plot_uv_data(files,ants,'xx')
@@ -125,8 +118,8 @@ for plot_type in args.plot:
         fig['abs']={};ax['abs']={}
         for chan in args.chan:
             fig['abs'][chan],ax['abs'][chan] = plt.subplots(1,1)
-            for ant in vis_corr[chan].keys():
-                amp = np.log10(np.abs(vis_corr[chan][ant]))           
+            for ant in vis_corr.keys():
+                amp = np.log10(np.abs(vis_corr[ant][:,chan]))           
                 ax['abs'][chan].plot(sr,amp-amp.max(),label=ant)
                 if args.compare:
                     try: amp = np.log10(np.abs(uvdata[ant][:,uv_chans[chan]]))
@@ -134,7 +127,7 @@ for plot_type in args.plot:
                         ant = '-'.join(ant.split('-')[::-1])
                         amp = np.log10(np.abs(uvdata[ant][:,uv_chans[chan]]))
                     ax['abs'][chan].plot(uvlst,amp-amp.max(),label='HERA %s'%ant)
-
+    
             fig['abs'][chan].suptitle('Absolute value   Channel:%d'%chan)
             ax['abs'][chan].legend()
 
