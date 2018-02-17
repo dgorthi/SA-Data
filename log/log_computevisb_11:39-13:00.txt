@@ -40644,25 +40644,3 @@ ant27N * ant27N
 515
 516
 Finished! Computing time array..
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/home/deepthi/SA-Data/analyse/compute_visibilities.py[0m in [0;36m<module>[0;34m()[0m
-[1;32m    109[0m     [0mfp[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
-[1;32m    110[0m [0;34m[0m[0m
-[0;32m--> 111[0;31m [0mdt[0m [0;34m=[0m [0mintegration_time[0m[0;34m[0m[0m
-[0m[1;32m    112[0m [0mstrt_time[0m [0;34m=[0m [0;36m1507649941[0m [0;34m+[0m [0mtotnsam[0m[0;34m*[0m[0mdt[0m[0;34m[0m[0m
-[1;32m    113[0m [0mt[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0mstrt_time[0m[0;34m,[0m[0mstrt_time[0m[0;34m+[0m[0mnsam[0m[0;34m*[0m[0mdt[0m[0;34m,[0m[0mstep[0m[0;34m=[0m[0mdt[0m[0;34m)[0m[0;34m[0m[0m
-
-[0;31mNameError[0m: name 'integration_time' is not defined
-
-
-
-
-
-
-
-Wrote file to disk from ipython session after this error.
-
-Signed: Deepthi Gorthi
-
-Do you really want to exit ([y]/n)? 

@@ -45636,5 +45636,3 @@ ant27N * ant27N
 579
 580
 Finished! Computing time array..
-
-Do you really want to exit ([y]/n)? 
