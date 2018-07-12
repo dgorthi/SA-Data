@@ -1,0 +1,24 @@
+heracorr: 
+#    plot: False
+#    file_dir: '/home/deepthi/Documents/HERA/Data/Oct11/oct11/2458038/zen.2458038.[1-3]*.xx.HH.uv'
+#    cc: [84-86]
+#    baseline: True
+#    ant: 
+#    set: 'PAMs'
+#    pol: 'xx'
+#    chan: [0,1,2]
+#
+mycorr:
+    files: ['../data/Oct10_PAMs_11:39-13:00.cp',
+            '../data/Oct10_PAMs_13:00-14:30.cp']
+    cc: [84-86]
+    baseline: True
+    ant: 
+    set: 'PAMs'
+    chan: [0,1,2]
+
+plot:
+    abs: False
+    phase: True
+    real: False
+    imag: False

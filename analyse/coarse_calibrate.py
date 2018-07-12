@@ -1,6 +1,4 @@
 ## Coarsely calibrate the visibilities by hand
-## Why are the three channels showing different behaviour?
-
 import numpy as np
 import matplotlib.pyplot as plt
 import cPickle as cp

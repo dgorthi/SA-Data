@@ -169,33 +169,33 @@ int acquire_socket_data(SockPar *sockpar){
       /* packet belongs to current buffer */
       offset=(seq-sockpar->curr->start);
       if(!sockpar->curr->flag[offset]){
-	/* duplicate packet! */
-	stat->bad++;stat->dbad++;
+	    /* duplicate packet! */
+	    stat->bad++;stat->dbad++;
       }else{
-	sockpar->curr->flag[offset]=0;
-	offset=offset*UDP_DATA;
-	memcpy(sockpar->curr->data+offset,sockpar->ubuf+UDP_HDR,UDP_DATA);
-	sockpar->curr->count++;
-	stat->got++; stat->dgot++;
+        sockpar->curr->flag[offset]=0;
+        offset=offset*UDP_DATA;
+        memcpy(sockpar->curr->data+offset,sockpar->ubuf+UDP_HDR,UDP_DATA);
+        sockpar->curr->count++;
+        stat->got++; stat->dgot++;
       }
     }else{
       if(seq >= sockpar->next->start && seq < sockpar->next->stop){
-	/* packet belongs to next buffer */
-	offset=(seq-sockpar->next->start);
-	if(!sockpar->next->flag[offset]){
-	  /* duplicate packet */
-	  stat->bad++;stat->dbad++;
-	}else{
-	  sockpar->next->flag[offset]=0;
-	  offset=offset*UDP_DATA;
-	  memcpy(sockpar->next->data+offset,sockpar->ubuf+UDP_HDR,UDP_DATA);
-	  sockpar->next->count++;
-	  stat->got++;stat->dgot++;
-	}
+        /* packet belongs to next buffer */
+        offset=(seq-sockpar->next->start);
+        if(!sockpar->next->flag[offset]){
+        /* duplicate packet */
+        stat->bad++;stat->dbad++;
+        }else{
+          sockpar->next->flag[offset]=0;
+          offset=offset*UDP_DATA;
+          memcpy(sockpar->next->data+offset,sockpar->ubuf+UDP_HDR,UDP_DATA);
+          sockpar->next->count++;
+          stat->got++;stat->dgot++;
+        }
       }else{
-	/* packet is badly out of time, drop */
-	stat->bad++;stat->dbad++;
-      }
+      /* packet is badly out of time, drop */
+      stat->bad++;stat->dbad++;
+        }
     }
 
     if((sockpar->curr->count == NACC) || 
@@ -275,7 +275,7 @@ int transfer_socket_data(SockPar *sockpar){
   while(!DoFinish){
     if(sockpar->copy != NULL && (idx=sockpar->copy->idx) != idx0){ 
       /* got fresh data*/
-      //fprintf(stderr,"idx: %d\tidx0: %d\n",idx,idx0);
+      fprintf(stderr,"idx: %d\tidx0: %d\n",idx,idx0);
       if(idx != (idx0+1)%NSOCKBUF) // missed at least one buf!
 	fprintf(stderr,"transfer_socket_data(): missed copying a buffer!\n");
 
