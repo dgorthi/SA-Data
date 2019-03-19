@@ -33,19 +33,21 @@ args = parser.parse_args()
 
 ## Check if all the files are in the same directory
 assert(args.strt_filename.split('/')[1] == args.stop_filename.split('/')[1])
-directory = args.strt_filename.split('/')[1]+'/'+args.strt_filename.split('/')[2]
+assert(args.strt_filename.split('/')[2] == args.stop_filename.split('/')[2])
+assert(args.strt_filename.split('/')[3] == args.stop_filename.split('/')[3])
+directory = '/'.join(args.strt_filename.split('/')[:-1]) #+'/'+args.strt_filename.split('/')[2]
 print(directory)
-date = args.strt_filename.split('_')[1]
+date = args.strt_filename.split('_')[-2]
 
 ## Log output
 if(args.log_output):
     if args.log_file_number:
-        logfile = '../log/log_unpacking_%s_%d.txt'%(date[:10],args.log_file_number)
+        logfile = '../log/log_unpacking_%s_%d.txt'%(date,args.log_file_number)
     else:
-        logfile = '../log/log_unpacking_%s.txt'%(date[:10])
+        logfile = '../log/log_unpacking_%s.txt'%(date)
     sys.stdout = open(logfile,'w',0)
 
-files = sorted(glob.glob('/'+directory+'/data_'+date[:8]+'*'), key=os.path.getmtime)
+files = sorted(glob.glob(directory+'/data_'+date[:8]+'*'), key=os.path.getmtime)
 strt = files.index(args.strt_filename)
 stop = files.index(args.stop_filename)
 files = files[strt:stop]
@@ -77,7 +79,7 @@ nsam = int(length_cpy/(args.antennas*args.channels*2))
 
 volts = {}
 
-with h5py.File('/'+directory+'/'+args.output,'a') as fp: 
+with h5py.File(directory+'/'+args.output,'a') as fp: 
     ## Write metadata to file attributes
     fp.attrs.create('Compressed',1)
     fp.attrs.create('strt_file',args.strt_filename)
