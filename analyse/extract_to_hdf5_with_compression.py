@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import argparse
-import h5py,bitshuffle.h5
+#import h5py,bitshuffle.h5
 import struct,glob,os,time,sys
 
 parser = argparse.ArgumentParser(description='Extract binary data from multiple files into a hdf5 file with bit shuffle compression',
@@ -26,8 +26,6 @@ parser.add_argument('--filesize', type=int, default= 512,
                     help='Size of each input file in MB')
 parser.add_argument('-log', '--log_output', action='store_true', default=False,
                     help='Log all output of this code')
-parser.add_argument('-logno','--log_file_number',type=int, default=0,
-                    help='Specify number of log file for this operation')
 
 args = parser.parse_args()
 
@@ -41,10 +39,7 @@ date = args.strt_filename.split('_')[-2]
 
 ## Log output
 if(args.log_output):
-    if args.log_file_number:
-        logfile = '../log/log_unpacking_%s_%d.txt'%(date,args.log_file_number)
-    else:
-        logfile = '../log/log_unpacking_%s.txt'%(date)
+    logfile = '../log/log_unpacking_%s_%s_%s.txt'%(date,args.strt_filename.split('-')[-1],args.stop_filename.split('-')[-1])
     sys.stdout = open(logfile,'w',0)
 
 files = sorted(glob.glob(directory+'/data_'+date[:8]+'*'), key=os.path.getmtime)
@@ -63,11 +58,12 @@ antenna_map = {0: '84N', 1: '85N', 2: '86N', 3: '87N',
                4: '52N', 5: '53N', 6: '54N', 7: '55N',
                8: '24N', 9: '25N', 10:'26N', 11:'27N'  }
 
-CPY_BUF  = int((args.filesize*1024*1024.)/(args.NACC*args.UDP + args.NACC))  # copy buffers per file
+CPY_BUF  = int((args.filesize*1024*1024.)//(args.NACC*args.UDP + args.NACC))  # copy buffers per file
 
-length_cpy = int(args.NACC*args.UDP*0.5)      # one cpy buffer size, 0.5 to account for short ints
+length_cpy = args.NACC*args.UDP//2      # one cpy buffer size, 0.5 to account for short ints
 struct_fmt = '<%dh%dB'%(length_cpy,args.NACC)
 struct_len = struct.calcsize(struct_fmt)
+# Number of samples per copy buffer
 nsam = int(length_cpy/(args.antennas*args.channels*2))
 
 #print ("Creating a global file for %d antennas and %d channels"%(args.antennas,args.channels))
@@ -78,6 +74,7 @@ nsam = int(length_cpy/(args.antennas*args.channels*2))
 #print ("Compressed using the bitshuffle algorithm")
 
 volts = {}
+skipped_files = 0
 
 with h5py.File(directory+'/'+args.output,'a') as fp: 
     ## Write metadata to file attributes
@@ -91,6 +88,7 @@ with h5py.File(directory+'/'+args.output,'a') as fp:
     fp.attrs.create('NACC',args.NACC)
     fp.attrs.create('UDP_B',args.UDP)
     fp.attrs.create('bin_filesize_MB', args.filesize)
+    fp.attrs.create('Nsam', nsam*CPY_BUF)
 
     for k,v in fp.attrs.items():
         print(k,v)
@@ -100,7 +98,9 @@ with h5py.File(directory+'/'+args.output,'a') as fp:
     for ant in range(args.antennas):
         volts[ant] = {}
         for chan in range(args.channels):
-            volts[ant][chan] = fp.create_dataset('%s_chan%d'%(antenna_map[ant],chan),(0,),dtype='complex64',maxshape=(None,),chunks=(26091520,),compression=bitshuffle.h5.H5FILTER,compression_opts=(block_size, bitshuffle.h5.H5_COMPRESS_LZ4))
+            volts[ant][chan] = fp.create_dataset('%s_chan%d'%(antenna_map[ant],chan), (0,), dtype='complex64',
+                                                 maxshape=(None,), chunks=(33030144,), compression=bitshuffle.h5.H5FILTER,
+                                                 compression_opts=(block_size, bitshuffle.h5.H5_COMPRESS_LZ4))
 
     #TODO: Delete the missing packets 8064 bytes (4032 h) at that site
     # missed = np.count_nonzero(cbuf[-1024:])
@@ -108,6 +108,7 @@ with h5py.File(directory+'/'+args.output,'a') as fp:
     for filename in files:
         if (os.path.getsize(filename)!=528547840):
             print("\nSkipping file %s\n"%filename)
+            skipped_files += 1
             continue
         print ("Reading " +filename + " ...")
         with open(filename,'r') as f:
@@ -119,6 +120,9 @@ with h5py.File(directory+'/'+args.output,'a') as fp:
                 for chan in range(args.channels):
                     for ant in range(args.antennas):
                         volts[ant][chan].resize(volts[ant][chan].shape[0]+nsam,axis=0)
-                        volts[ant][chan][-nsam:] = 1j*np.asarray(cbuf[(file_map[ant]+12*chan):length_cpy:72],dtype='float32') +np.asarray(cbuf[(file_map[ant]+12*chan+1):length_cpy:72],dtype='float32')
+                        volts[ant][chan][-nsam:] = 1j*np.asarray(cbuf[(file_map[ant]+12*chan):length_cpy:72],dtype='float32')+\
+                                                   np.asarray(cbuf[(file_map[ant]+12*chan+1):length_cpy:72],dtype='float32')
+
+    fp.attrs.create('Nskip_files', skipped_files)
                         
 print("Finished unpacking all the data.. You may read the file now")

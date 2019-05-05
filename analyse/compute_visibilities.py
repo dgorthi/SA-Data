@@ -44,6 +44,8 @@ with h5py.File(args.filename,'r') as fp:
     if not (args.antennas):  args.antennas = fp.attrs['Nants']
     if not (args.channels):  args.channels = fp.attrs['Nchans']
     # copy over metadata
+    meta['antennas'] = args.antennas
+    meta['channels'] = args.channels
     meta['num_files'] = fp.attrs['N_bin_files']
     meta['NACC'] = fp.attrs['NACC']
     meta['UDP'] = fp.attrs['UDP_B']
@@ -53,14 +55,9 @@ with h5py.File(args.filename,'r') as fp:
     meta['date'] = fp.attrs['date']
     fp.close()
 
-## Print all the arguments to log file and to V
-for i in vars(args):
-    print i,vars(args)[i]
-    meta[i] = vars(args)[i]
-    
 ## Determine integration period
 #total no of samples = samples per udp pkt * udp pkts per cpy buf * cpy bufs per file * total number of files
-tot_sam = meta['UDP']/(4*meta['antennas']*meta['channels'])*meta['NACC']*int((meta['filesize']*1024*1024.)/(meta['NACC']*meta['UDP'] + meta['NACC']))*meta['num_files']
+ tot_sam = meta['UDP']/(4*meta['antennas']*meta['channels'])*meta['NACC']*int((meta['filesize']*1024*1024.)/(meta['NACC']*meta['UDP'] + meta['NACC']))*meta['num_files']
 nsam = meta['num_files']
 sample_rate = args.sampling_freq*1e6/512. #One sample per 512 clks is output acc. to the hardware design
 foldlen = tot_sam/nsam
@@ -77,6 +74,28 @@ antenna_map = {0: '84N', 1: '85N', 2: '86N', 3: '87N',
 
 # antenna_map = {0: '27E', 1: '27N', 2: '84E', 3: '84N'  }
 
+# Compute unix time
+file_list = filter(lambda fn: 'Oct10_PAMs' in fn, glob.glob('/usr2/dgorthi/*'))
+file_list.extend(filter(lambda fn: 'Oct10_PAMs' in fn, glob.glob('/data/dgorthi_exthdd/Oct_data/*')))
+
+file_list.sort(key = lambda x: x.rsplit('_')[-1]) #time range
+idx = file_list.index(args.filename)
+
+totnsam = 0
+for i in range(idx):
+    with h5py.File(file_list[i],'r') as fp:
+        totnsam += fp.attrs['N_bin_files']
+    fp.close()
+ 
+strt_time = Time(1507649941, format='unix')
+dt = TimeDelta(meta['integration_time'], format='sec')
+V['unix_time'] = strt_time + np.arange(totnsam,totnsam+nsam)*dt
+
+## Print all the arguments to log file and to V
+for i in vars(args):
+    print i,vars(args)[i]
+    meta[i] = vars(args)[i]
+    
 def comp_vis(a1,a2):
     vis = np.zeros([nsam,3],dtype=np.complex64)
     print a1,a2
@@ -95,22 +114,7 @@ for ant1 in range(meta['antennas']):
         print('\n\nant%s * ant%s'%(antenna_map[ant1],antenna_map[ant2]))
         V['%s-%s'%(antenna_map[ant1],antenna_map[ant2])] = comp_vis(antenna_map[ant1],antenna_map[ant2])
 
-print('Finished! Computing time array..')
-
-# Compute unix time
-file_list = filter(lambda fn: 'Oct10_PAMs' in fn, glob.glob('/data/dgorthi/*'))
-file_list.sort()
-idx = file_list.index(args.filename)
-
-totnsam = 0
-for i in range(idx):
-    with h5py.File(file_list[i],'r') as fp:
-        totnsam += fp.attrs['N_bin_files']
-    fp.close()
- 
-strt_time = Time(1507649941, format='unix')
-dt = TimeDelta(meta['integration_time'], format='sec')
-V['unix_time'] = strt_time + np.arange(totnsam,totnsam+nsam)*dt
+print('Finished! Writing out the cPickle file to: %s'%args.output)
 
 with open(args.output,'wb') as fp:
     cp.dump(V,fp,protocol=2)
